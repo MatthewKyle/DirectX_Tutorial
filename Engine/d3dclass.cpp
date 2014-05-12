@@ -421,6 +421,53 @@ void D3DClass::BeginScene(float red, float green, float blue, float alpha)
 
 void D3DClass::EndScene()
 {
-	
+	// Present the back buffer to the screen since rendering is complete.
+	if(m_vsync_enabled)
+	{
+		// Lock the screen refresh rate.
+		m_swapChain->Present(1,0);
+	}
+	else
+	{
+		// Present as fast as possible.
+		m_swapChain->Present(0,0);
+	}
+
+	return;
+}
+
+ID3D11Device* D3DClass::GetDevice()
+{
+	return m_device;
+}
+
+ID3D11DeviceContext* D3DClass::GetDeviceContext()
+{
+	return m_deviceContext;
+}
+
+void D3DClass::GetProjectionMatrix(D3DXMATRIX& projectionMatrix)
+{
+	projectionMatrix = m_projectionMatrix;
+	return;
+}
+
+void D3DClass::GetWorldMatrix(D3DXMATRIX& worldMatrix)
+{
+	worldMatrix = m_worldMatrix;
+	return;
+}
+
+void D3DClass::GetOrthoMatrix(D3DXMATRIX& orthoMatrix)
+{
+	orthoMatrix = m_orthoMatrix;
+	return;
+}
+
+void D3DClass::GetVideoCardinfo(char* cardName, int& memory)
+{
+	strcpy_s(cardName, 128, m_videoCardDescription);
+	memory = m_videoCardMemory;
+	return;
 }
 
