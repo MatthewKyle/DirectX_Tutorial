@@ -33,6 +33,9 @@
     <ClCompile Include="modelclass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="colorshaderclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="systemclass.h">
@@ -55,10 +58,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="color.ps">
+    <None Include="color.psh">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="color.vs">
+    <None Include="color.vsh">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
